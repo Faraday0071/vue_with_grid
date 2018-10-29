@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Test</title>
+    <link href="http://pl.allfont.net/allfont.css?fonts=exo-20" rel="stylesheet" type="text/css" />
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+</head>
+
+<body>
+    <div class="container" id="vue">
+        <transition name="fade">
+            <div class="registration" v-if="registration" key="registration">
+                <h1>PRZEJDŹ SAMEGO SIEBIE.</h1>
+                <div class="registration--images"></div>
+                <article>
+                    <h3>Dołącz do naszej fantastycznej aplikacji, dzięki której znajdziesz fascynujące szlaki turystyczne.</h3>
+                    <p>Wyszukujemy szlaki w Polsce Europie oraz Stanach Zjednoczonych, w naszej bazie mamy ponad <strong>3000 szlaków</strong> o łacznej długości <strong>43021 km</strong></p>
+                </article>
+                <form>
+                    <div :class="{tooltip: fail}" style="display:inline-grid">
+                        <input type="text" placeholder="imię i nazwisko" v-model="name" :class="{fail: fail}">
+                        <div class="left" v-if="fail">
+                            <p>Mamy już takiego uzytkownika w bazie</p>
+                            <i></i>
+                        </div>
+                    </div>
+                    <div :class="{tooltip: fail}" style="display:inline-grid">
+                        <input type="text" placeholder="email" v-model="email" :class="{fail: fail}">
+                        <div class="left" v-if="fail">
+                            <p>Sprawdź czy mail jest poprawny</p>
+                            <i></i>
+                        </div>
+                    </div>
+                    <div :class="{tooltip: fail}" style="display:inline-grid">
+                        <select v-model="selectedCountry" :class="{fail: fail}">
+                           <option v-for="country in countries" :selected="country" >{{ country }}</option>
+                        </select>
+                        <div class="left" v-if="fail">
+                            <p>Musisz wybrać kraj</p>
+                            <i></i>
+                        </div>
+                    </div>
+                    <div :class="{tooltip: fail}" style="display:inline-grid">
+                        <div>
+                            <label for="checkbox" class="css-label" :class="{fail: fail}">
+                              <input type="checkbox" class="css-checkbox" id="checkbox" v-model="checked">
+                               Wyrażam zgodę na przetwarzanie podanych przeze mnie danych osobowych
+                             </label>
+                        </div>
+                        <div class="left" v-if="fail">
+                            <p>Checkbox musi być zaznaczony</p>
+                            <i></i>
+                        </div>
+                    </div>
+                </form>
+                <button @click="validate">Zarejestruj się</button>
+            </div>
+            <div class="registration succes" v-else key="succes">
+                <h1>DZIĘKUJEMY ZA REJESTRACJE</h1>
+                <button @click="change">ZACZNIJ ODKRYWAĆ SZLAKI</button>
+            </div>
+        </transition>
+    </div>
+
+
+
+</body>
+<script src="js/script.js"></script>
+
+</html>

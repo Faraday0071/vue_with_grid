@@ -1,0 +1,245 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-image: url('../images/Layer1.png');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  color: white;
+}
+
+
+.container {
+ background: inherit;
+ max-width: 840px;
+ height: 400px;
+ position: absolute;
+ overflow: hidden;
+ top: 0;
+ bottom: 0;
+ right: 0;
+ left: 0;
+ margin: auto;
+}
+
+.container::before {
+ content: '';
+ max-width: 890px;
+ height: 450px;
+ background: inherit;
+ position: absolute;
+ left: -25px;
+ right: 0;
+ top: -25px;
+ bottom: 0;
+ box-shadow: inset 0 0 0 200px rgba(255,255,255,0.1);
+ filter: blur(8px);
+}
+
+.registration {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
+  position: absolute;
+  max-width: 100%;
+  height: 100%;
+}
+
+.registration h1, .registration--images, .registration button {
+  grid-column: 1/-1;
+}
+
+.registration h1 {
+  text-align: center;
+  font-family: 'Exo 2.0', arial;
+  font-weight: 800;
+  font-size: 40px;
+  padding-top: 10px;
+}
+
+.registration--images {
+  position: static;
+  border-bottom: 1px solid grey;
+}
+
+.registration article {
+  display: grid;
+  font-family: 'Lato', sans-serif;
+}
+
+.registration article p, .registration article h3 {
+  padding: 20px;
+}
+
+.registration button, .registration form {
+  z-index: 10;
+}
+
+.registration form {
+  display: grid;
+  grid-row-gap: 20px;
+}
+
+input {
+  padding: 5px;
+}
+
+.registration button {
+  background-color: white;
+  color: black;
+  font-family: 'Exo 2.0', arial !important;
+  -webkit-transition: 0.5s color, 0.5s background;
+  transition: 0.5s color, 0.5s background;
+  border: none;
+  font-size: 1.3em;
+  font-weight: 700;
+}
+
+.registration button:hover {
+  background-color: black;
+  color: white;
+}
+
+.succes {
+  grid-template-rows: 6fr 1fr;
+  width: 100%;
+  height: 100%
+}
+.succes h1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fail {
+  color: #C60001 !important;
+  border-color: #C60001 !important;
+}
+
+
+
+.tooltip {
+    display: inline-grid;
+    position:relative;
+    border-bottom:1px dotted #666;
+    text-align:left;
+}
+
+.tooltip .left {
+    min-width:200px;
+    top:50%;
+    right:100%;
+    margin-right:20px;
+    transform:translate(0, -50%);
+    padding:10px 20px;
+    color:#FFFFFF;
+    background-color:#C60001;
+    font-weight:normal;
+    font-size:13px;
+    border-radius:8px;
+    position:absolute;
+    z-index:99999999;
+    box-sizing:border-box;
+    border:1px solid #C60001;box-shadow:0 1px 8px rgba(0,0,0,0.5);
+    visibility:hidden; opacity:0; transition:opacity 0.8s;
+}
+
+.tooltip:hover .left {
+    visibility:visible; opacity:1;
+}
+
+.tooltip .left i {
+    position:absolute;
+    top:50%;
+    left:100%;
+    margin-top:-12px;
+    width:12px;
+    height:24px;
+    overflow:hidden;
+}
+
+.tooltip .left i::after {
+    content:'';
+    position:absolute;
+    width:12px;
+    height:12px;
+    left:0;
+    top:50%;
+    transform:translate(-50%,-50%) rotate(-45deg);
+    background-color:#C60001;
+    border:1px solid #C60001;box-shadow:0 1px 8px rgba(0,0,0,0.5);
+}
+
+/* vue classes */
+.fade-enter {
+  opacity: 0;
+}
+.fade-enter-active {
+  transition: opacity 1s;
+}
+.fade-leave-active {
+  transition: opacity 1s;
+  opacity: 0;
+}
+
+@media (max-width: 700px) {
+  .container {
+    width: 80%;
+    height: 100%;
+    position: static;
+    margin: 0;
+  }
+  .container::before {
+    max-width: 200%;
+    height: 200%
+  }
+  .registration {
+    width: 80%;
+    margin-left: 10%;
+    grid-template-columns: 1fr;
+  }
+
+  .registration form {
+    grid-template-columns:
+  }
+
+  .tooltip .left {
+    display: none;
+}
+
+}
+
+///////////////
+input[type=checkbox].css-checkbox {
+							position:absolute; z-index:-1000; left:-1000px; overflow: hidden; clip: rect(0 0 0 0); height:1px; max-width:1px; margin:-1px; padding:0; border:0;
+						}
+
+						input[type=checkbox].css-checkbox + label.css-label {
+							padding-left:27px;
+							height:22px;
+							display:inline-block;
+							line-height:22px;
+							background-repeat:no-repeat;
+							background-position: 0 0;
+							font-size:22px;
+							vertical-align:middle;
+							cursor:pointer;
+
+						}
+
+						input[type=checkbox].css-checkbox:checked + label.css-label {
+							background-position: 0 -22px;
+						}
+						label.css-label {
+
+				-webkit-touch-callout: none;
+				-webkit-user-select: none;
+				-khtml-user-select: none;
+				-moz-user-select: none;
+				-ms-user-select: none;
+				user-select: none;
+			}
+////////////////////
